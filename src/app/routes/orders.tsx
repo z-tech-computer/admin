@@ -132,6 +132,10 @@ export default function OrdersPage() {
         <Select
           value={statusFilter}
           onValueChange={(v) => { setStatusFilter(v ?? ""); setPage(1); }}
+          items={[
+            { value: "", label: "All statuses" },
+            ...ORDER_STATUSES.map((s) => ({ value: s, label: s })),
+          ]}
         >
           <SelectTrigger>
             <SelectValue placeholder="All statuses" />

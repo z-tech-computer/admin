@@ -116,7 +116,11 @@ export function ProductForm({
         <h3 className="font-medium">Organization</h3>
         <div className="grid gap-4 sm:grid-cols-2">
           <FieldWrapper label="Category" error={errors.category_id?.message}>
-            <Select value={watch("category_id")} onValueChange={(v) => setValue("category_id", v ?? "")}>
+            <Select
+              value={watch("category_id")}
+              onValueChange={(v) => setValue("category_id", v ?? "")}
+              items={categories.map((c) => ({ value: c.id, label: c.name }))}
+            >
               <SelectTrigger className="w-full">
                 <SelectValue placeholder="Select category" />
               </SelectTrigger>
@@ -131,6 +135,7 @@ export function ProductForm({
             <Select
               value={watch("brand_id") ?? ""}
               onValueChange={(v) => setValue("brand_id", v || null)}
+              items={brands.map((b) => ({ value: b.id, label: b.name }))}
             >
               <SelectTrigger className="w-full">
                 <SelectValue placeholder="No brand" />

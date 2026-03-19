@@ -140,7 +140,11 @@ export default function OrderDetailPage() {
             <h3 className="font-medium">Update Status</h3>
             <div className="space-y-1.5">
               <Label>New Status</Label>
-              <Select value={newStatus} onValueChange={(v) => setNewStatus(v ?? "")}>
+              <Select
+                value={newStatus}
+                onValueChange={(v) => setNewStatus(v ?? "")}
+                items={ORDER_STATUSES.map((s) => ({ value: s, label: s }))}
+              >
                 <SelectTrigger className="w-full">
                   <SelectValue placeholder="Select status" />
                 </SelectTrigger>
